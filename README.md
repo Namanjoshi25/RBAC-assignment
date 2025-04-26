@@ -51,11 +51,12 @@ npm install
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
+DOMAIN=your_frontend_domain
+PORT=your_backend_port || optional
 
-MAIL_HOST=smtp.mailtrap.io
-MAIL_PORT=2525
-MAIL_USER=your_mailtrap_username
-MAIL_PASS=your_mailtrap_password
+
+MAILER_USER=your_mailtrap_username
+MAILER_PASS=your_mailtrap_password
 
 ##starting the application
 
