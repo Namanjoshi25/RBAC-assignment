@@ -1,0 +1,30 @@
+@import "tailwindcss";
+body {
+  font-family: 'Poppins', sans-serif;
+}
+  .nav-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+  }
+  .nav-link:hover{
+    color: rgb(28, 28, 247);
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: rgb(28, 28, 247);
+    transition: width 0.5s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+    
+  }
+  
