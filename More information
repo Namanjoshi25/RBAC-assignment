@@ -1,0 +1,29 @@
+
+#Flow of my Authentication including email verification(I am using mailtrap with nodemailer for sending emails)
++------------------+          +--------------------+          +------------------+
+|   Frontend App    |          |      Backend        |          |     Database      |
+| (React + Tailwind)|          | (Node.js + Express) |          |    (MongoDB)       |
++------------------+          +--------------------+          +------------------+
+        |                               |                              |
+        | -- Signup Request (POST) ---> |                              |
+        |                               | -- Save new user (isVerified:false) -->
+        |                               |                              |
+        |                               | -- Send verification email via Mailtrap
+        | <--- Signup success message --|                              |
+        |                                                              |
+User clicks verification link                                          
+        |                               |                              |
+        | -- Verify request (POST) ---> | -- Verify token + Update isVerified:true
+        | <--- Email verified success --|                              |
+        |                                                              |
+        | -- Login Request (POST) ---> | -- Check isVerified:true + Generate JWT
+        | <--- JWT token --------------|                              |
+
+#Other details
+1.For giving admin functinality to a user (only for creating first admin) u need to manually change the user isAdmin property in the database ( to restirct getting admin powers to any users).
+2.Admin can manage users by providing then admin power from the admin dashboard.
+3.Only admin can create,edit ,delete the blogs.
+4.Added a type field for the blogs for better segregations.
+5.User can only watch and read the blogs after logging in.
+6.UI is kept modern yet minimilist.
+7.For email verification i have used mailtrap (you need to create account and add the mailer user and pass in env file) with nodemailer to send verification emails for verification.
